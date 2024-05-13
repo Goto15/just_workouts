@@ -7,6 +7,11 @@
 
 import Foundation
 
-class Exercise {
+struct Exercise: Hashable, Identifiable {
+  var id = UUID()
   
+  let name: String
+}
+
+class Exercises {
 }

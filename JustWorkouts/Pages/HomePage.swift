@@ -13,7 +13,7 @@ struct HomePage: View {
     ZStack {
       TabView {
         Group {
-          ExercisePage()
+          WorkoutPage()
             .tabItem {
               Label("Workouts", systemImage: "figure.strengthtraining.traditional")
             }
