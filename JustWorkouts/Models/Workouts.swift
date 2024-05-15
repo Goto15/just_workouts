@@ -9,9 +9,13 @@ import Foundation
 
 struct Exercise: Hashable, Identifiable {
   var id = UUID()
-  
-  let name: String
+  var exercise: String? = "Squat"
+  var sets: [Set]? = [Set()]
 }
 
-class Exercises {
+struct Set: Hashable, Identifiable {
+  var id = UUID()
+  var order_num: Int = 1
+  var reps: Int? = 0
+  var weight: Float? = 0
 }
