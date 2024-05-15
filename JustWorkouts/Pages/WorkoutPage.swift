@@ -19,8 +19,6 @@ struct WorkoutPage: View {
     return formatter
   }()
   
-  // TODO: Needs to add a new set with increasing number
-  //       and also needs to autofill last set's reps
   func addSet() -> Void {
     let newSet = Set(order_num: sets.last!.order_num + 1,
                      reps: sets.last?.reps,
