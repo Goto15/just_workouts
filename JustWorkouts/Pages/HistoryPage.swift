@@ -15,7 +15,6 @@ struct HistoryPage: View {
         Text("Workout History")
         Spacer()
       }
-      .foregroundColor(.white)
     }
     .padding()
   }

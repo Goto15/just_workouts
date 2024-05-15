@@ -15,7 +15,6 @@ struct TrendsPage: View {
         Text("Workout Trends")
         Spacer()
       }
-      .foregroundColor(.white)
     }
     .padding()
   }

@@ -15,7 +15,6 @@ struct SettingsPage: View {
         Text("Change Settings")
         Spacer()
       }
-      .foregroundColor(.white)
     }
     .padding()
   }
