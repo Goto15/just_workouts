@@ -30,8 +30,10 @@ struct HomePage: View {
               Label("Settings", systemImage: "gearshape.fill")
             }
         }
+        .toolbarBackground(.blue, for: .tabBar)
+        .toolbarBackground(.visible, for: .tabBar)
+        .toolbarColorScheme(.dark, for: .tabBar)
       }
-      .toolbarBackground(.visible, for: .tabBar)
     }
   }
 }
