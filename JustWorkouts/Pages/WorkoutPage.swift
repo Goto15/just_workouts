@@ -9,6 +9,7 @@ import SwiftUI
 //import Combine
 
 struct WorkoutPage: View {
+  @State private var exercises: [Exercise] = [Exercise()]
   
   var body: some View {
     VStack(alignment: .leading) {

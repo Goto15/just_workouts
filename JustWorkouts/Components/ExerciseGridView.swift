@@ -9,8 +9,8 @@ import SwiftUI
 //import Combine
 
 struct ExerciseGridView: View {
-  //  @State private var reps: Int = 0
-  //  @State private var numSets: Int = 1
+  // TODO: store the last set values in a temp value in case all sets are removed
+  //       that way a user has a smoother experience
   @State private var sets: [Set] = [Set(reps: 12, weight: 140)]
   
   private static let formatter: NumberFormatter = {
@@ -20,19 +20,12 @@ struct ExerciseGridView: View {
   }()
   
   func addSet() -> Void {
-    let newSet = Set(order_num: (sets.last?.order_num ?? 0) + 1,
-                     reps: (sets.last?.reps ?? 10),
-                     weight: (sets.last?.weight ?? 45))
-    
-    sets.append(newSet)
+    sets.append(Set(reps: (sets.last?.reps ?? 10), weight: (sets.last?.weight ?? 45)))
   }
   
   // Have to renumber the sets so additional sets a
-  func removeSet(setToRemove: Binding<Set>) -> Void {
-    sets.remove(at: (setToRemove.order_num.wrappedValue - 1))
-    for (index, _) in sets.enumerated() {
-      sets[index].order_num = index + 1
-    }
+  func removeSet(setToRemove: Int) -> Void {
+    sets.remove(at: setToRemove)
   }
   
   var body: some View {
@@ -53,14 +46,14 @@ struct ExerciseGridView: View {
           
           Divider()
           
-          ForEach($sets) { set in
+          ForEach(Array(zip(sets.indices, $sets)), id: \.0) { index, set in
             GridRow(alignment: .center){
-              Text(String(set.order_num.wrappedValue))
+              Text(String(index + 1))
               TextField("Reps", value: set.reps, formatter: ExerciseGridView.formatter)
                 .padding([.leading, .trailing], 8)
               TextField("Weight", value: set.weight, formatter: ExerciseGridView.formatter)
                 .padding([.leading, .trailing], 8)
-              Button (action: {removeSet(setToRemove: set)}) {
+              Button (action: { sets.remove(at: index) }) {
                 Label("Delete Set", systemImage: "minus.circle")
                   .font(Font.system(size: 16))
                   .labelStyle(.iconOnly)
