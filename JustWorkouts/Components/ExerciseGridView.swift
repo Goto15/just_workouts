@@ -29,54 +29,51 @@ struct ExerciseGridView: View {
   }
   
   var body: some View {
-    ZStack {
-      VStack(alignment: .leading) {
-        Text("Squats")
-          .font(.title)
-          .padding(.bottom)
-          .fontWeight(.bold)
+    VStack(alignment: .leading) {
+      Text("Squats")
+        .font(.title)
+        .padding(.bottom, 2)
+        .fontWeight(.bold)
+      
+      // NOTE: https://sarunw.com/posts/swiftui-grid/
+      Grid(alignment: .leading, verticalSpacing: 10) {
+        GridRow {
+          Text("Set")
+          Text("Reps").padding([.leading, .trailing], 8)
+          Text("Weight").padding([.leading, .trailing], 8)
+        }
         
-        // NOTE: https://sarunw.com/posts/swiftui-grid/
-        Grid(alignment: .leading, verticalSpacing: 10) {
-          GridRow {
-            Text("Set")
-            Text("Reps").padding([.leading, .trailing], 8)
-            Text("Weight").padding([.leading, .trailing], 8)
-          }
-          
-          Divider()
-          
-          ForEach(Array(zip(sets.indices, $sets)), id: \.0) { index, set in
-            GridRow(alignment: .center){
-              Text(String(index + 1))
-              TextField("Reps", value: set.reps, formatter: ExerciseGridView.formatter)
-                .padding([.leading, .trailing], 8)
-              TextField("Weight", value: set.weight, formatter: ExerciseGridView.formatter)
-                .padding([.leading, .trailing], 8)
-              Button (action: { sets.remove(at: index) }) {
-                Label("Delete Set", systemImage: "minus.circle")
-                  .font(Font.system(size: 16))
-                  .labelStyle(.iconOnly)
-                  .tint(.red)
-              }
+        Divider()
+        
+        ForEach(Array(zip(sets.indices, $sets)), id: \.0) { index, set in
+          GridRow(alignment: .center){
+            Text(String(index + 1))
+            TextField("Reps", value: set.reps, formatter: ExerciseGridView.formatter)
+              .padding([.leading, .trailing], 8)
+            TextField("Weight", value: set.weight, formatter: ExerciseGridView.formatter)
+              .padding([.leading, .trailing], 8)
+            Button (action: { sets.remove(at: index) }) {
+              Label("Delete Set", systemImage: "minus.circle")
+                .font(Font.system(size: 16))
+                .labelStyle(.iconOnly)
+                .tint(.red)
             }
           }
         }
-        .font(.title3)
-        .keyboardType(.numberPad)
-        .textFieldStyle(RoundedBorderTextFieldStyle())
-        
-        Button(
-          action: { addSet() }){
-            Label("Set", systemImage: "plus.square.fill")
-              .frame(maxWidth: .infinity, alignment: .leading)
-          }
-          .font(.title)
-          .buttonStyle(.borderedProminent)
-          .tint(.accentColor)
-          .padding(.top)
       }
-      .padding()
+      .font(.title3)
+      .keyboardType(.numberPad)
+      .textFieldStyle(RoundedBorderTextFieldStyle())
+      
+      Button(
+        action: { addSet() }){
+          Label("Set", systemImage: "plus.square")
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .font(.title)
+        .buttonStyle(.borderedProminent)
+        .tint(.accentColor)
+        .padding(.top)
     }
   }
 }
