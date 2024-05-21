@@ -17,17 +17,14 @@ struct Workout: Hashable, Identifiable {
 struct Exercise: Hashable, Identifiable {
   var id = UUID()
   var name: String?
-  var aliases: [String]?
-  var primaryMuscles: [Muscle]?
-  var secondaryMuscles: [Muscle]?
-  var force: Force?
-  var level: Level?
-  var mechanic: Mechanic?
-  var equipment: Equipment?
-  var category: Category?
-  var instructions: [String]?
-  var description: [String]?
-  var tips: [String]?
+  var primaryMuscles: String?
+  var secondaryMuscles: String?
+  var force: String?
+  var level: String?
+  var mechanic: String?
+  var equipment: String?
+  var category: String?
+  var instructions: String?
 }
 
 struct Set: Hashable, Identifiable {
