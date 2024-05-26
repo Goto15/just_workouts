@@ -13,20 +13,6 @@ struct Workout: Hashable, Identifiable {
   var sets: [Set]
 }
 
-// https://github.com/wrkout/exercises.json
-struct Exercise: Hashable, Identifiable {
-  var id = UUID()
-  var name: String?
-  var primaryMuscles: String?
-  var secondaryMuscles: String?
-  var force: String?
-  var level: String?
-  var mechanic: String?
-  var equipment: String?
-  var category: String?
-  var instructions: String?
-}
-
 struct Set: Hashable, Identifiable {
   var id = UUID()
   var reps: Int? = 0
