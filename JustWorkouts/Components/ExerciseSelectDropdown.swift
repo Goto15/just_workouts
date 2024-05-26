@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct ExerciseSelectDropdown: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  @State private var selectedExercise = ExercisesData.exercisesDataList[0]
+  var body: some View {
+    VStack{
+      Picker("Exercise", selection: $selectedExercise){
+        ForEach(ExercisesData.exercisesDataList) { exercise in
+          Text(exercise.name ?? "Missing Exercise Name")
+            .tag(exercise)
+        }
+      }
     }
+  }
 }
 
 #Preview {

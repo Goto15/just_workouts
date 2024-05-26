@@ -6,11 +6,9 @@
 //
 
 import SwiftUI
-//import Combine
 
 struct ExerciseGridView: View {
-  // TODO: store the last set values in a temp value in case all sets are removed
-  //       that way a user has a smoother experience
+  // TODO: This needs to store the exercise that's being performed based on what's in the exercise drop down
   @State private var sets: [Set] = [Set(reps: 12, weight: 140)]
   
   private static let formatter: NumberFormatter = {
@@ -30,10 +28,8 @@ struct ExerciseGridView: View {
   
   var body: some View {
     VStack(alignment: .leading) {
-      Text("Squats")
-        .font(.title)
-        .padding(.bottom, 2)
-        .fontWeight(.bold)
+      // TODO: This selection needs to change the title of the exercise
+      ExerciseSelectDropdown()
       
       // NOTE: https://sarunw.com/posts/swiftui-grid/
       Grid(alignment: .leading, verticalSpacing: 10) {
