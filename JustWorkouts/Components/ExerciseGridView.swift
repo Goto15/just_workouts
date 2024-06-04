@@ -67,7 +67,6 @@ struct ExerciseGridView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
         }
         .font(.title)
-        .buttonStyle(.borderedProminent)
         .tint(.accentColor)
         .padding(.top)
     }

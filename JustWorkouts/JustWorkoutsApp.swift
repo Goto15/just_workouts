@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct JustWorkoutsApp: App {
@@ -13,6 +14,7 @@ struct JustWorkoutsApp: App {
     WindowGroup {
       HomePage()
     }
+    .modelContainer(for: Exercise.self)
   }
 }
 

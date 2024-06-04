@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ExerciseSelectDropdown: View {
-  @State private var selectedExercise = ExercisesData.exercisesDataList[0]
+//  @State private var selectedExercise = ExercisesData.exercisesDataList[0]
   var body: some View {
     VStack{
-      Picker("Exercise", selection: $selectedExercise){
-        ForEach(ExercisesData.exercisesDataList) { exercise in
-          Text(exercise.name ?? "Missing Exercise Name")
-            .tag(exercise)
-        }
-      }
+//      Picker("Exercise", selection: $selectedExercise){
+//        ForEach(ExercisesData.exercisesDataList) { exercise in
+//          Text(exercise.name)
+//            .tag(exercise)
+//        }
+//      }
     }
   }
 }

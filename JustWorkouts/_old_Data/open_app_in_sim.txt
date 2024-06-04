@@ -1,0 +1,8 @@
+Device ID: FC7F385B-D521-4CD8-8097-5C904C2B3166
+
+boot the sim:
+/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app/Contents/MacOS/Simulator -CurrentDeviceUDID FC7F385B-D521-4CD8-8097-5C904C2B3166
+
+install and launch application
+xcrun simctl install FC7F385B-D521-4CD8-8097-5C904C2B3166 <PATH-TO-APPLICATION-BUNDLE>
+xcrun simctl launch FC7F385B-D521-4CD8-8097-5C904C2B3166 <BUNDLE-ID-OF-APP-BUNDLE>
